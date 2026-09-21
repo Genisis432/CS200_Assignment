@@ -1,0 +1,123 @@
+<!doctype html>
+<!--
+  ============================================================
+  Assignment 2 · JavaScript Project · Scenario C: A squad sheet
+
+  STARTER PAGE. A finished page with NO JavaScript. Every element
+  your script needs is here and named:
+
+    form.add-form          listen for "submit" on this
+    #player-name ...    the fields, one per property; .value on each
+    p.form-message         your validation message goes in here
+    ul.item-list           EMPTY. render() fills it from the array
+    p.summary              your derived value goes in here
+    button.clear-all       listen for "click" on this
+    span.shirt             the badge. render() makes it with createElement
+                          and puts the shirt number in it, first in the card
+
+  You MUST change one thing in this file: add YOUR FIELD (see the
+  comment inside the form). You MAY change anything else: the
+  team, the names, the words, the colours. The rubric marks the
+  JavaScript and whether the HTML you hand in is still sound.
+
+  The script tag already carries `defer`. Keep it.
+  ============================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A squad sheet · CS200 Assignment 2</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">Brikama United</a>
+      <p class="tagline">Nawettan 2026 · Squad</p>
+    </header>
+
+    <main>
+      <h1>The squad</h1>
+      <p class="intro">
+        Every player, their shirt number, and their goals so far. Press the
+        button when they score.
+      </p>
+
+      <form class="add-form">
+        <h2>Add a player</h2>
+
+        <div class="field">
+          <label for="player-name">Player</label>
+          <input
+            id="player-name"
+            name="name"
+            type="text"
+            placeholder="e.g. Modou Barrow"
+          />
+        </div>
+
+        <div class="field">
+          <label for="player-shirt">Shirt number</label>
+          <input
+            id="player-shirt"
+            name="shirt"
+            type="number"
+            min="1"
+            max="99"
+            placeholder="9"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="player-goals">Goals so far</label>
+          <input
+            id="player-goals"
+            name="goals"
+            type="number"
+            min="0"
+            placeholder="0"
+            required
+          />
+        </div>
+
+        <!-- ⚠️ YOUR FIELD. The brief asks for one more property of your own:
+           a position (a <select>), captain (a checkbox), a hometown. Add a
+           labelled field here and give it an id and a name, then read it in
+           your script like the others.
+           -->
+        <div class="field">
+          <label for="player-position">Position</label>
+          <select id="player-position" name="position">
+            <option value="GK">Goalkeeper</option>
+            <option value="DF">Defender</option>
+            <option value="MF">Midfielder</option>
+            <option value="FW">Forward</option>
+          </select>
+        </div>
+
+        <button type="submit">Add to squad</button>
+
+        <!-- Empty means hidden. Your script fills it and adds .is-error -->
+        <p class="form-message"></p>
+      </form>
+
+      <!-- ⚠️ EMPTY ON PURPOSE. Nothing is written into the list in the HTML.
+         render() builds every <li class="item"> from your array. -->
+      <ul class="item-list"></ul>
+
+      <div class="summary-row">
+        <!-- Your derived value, e.g. "14 goals · top scorer: Modou Barrow (6)". Written by render(). -->
+        <p class="summary"></p>
+
+        <button type="button" class="clear-all">Clear the squad</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>CS200 · Fundamentals of Computer Science · JCC</p>
+    </footer>
+  </body>
+</html>
